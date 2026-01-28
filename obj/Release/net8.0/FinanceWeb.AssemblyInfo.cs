@@ -12,9 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinanceWeb")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cbc3f9e22b75c94e937c5f2b27247504b48f378e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b84ad92053b14e765f693a43ea79409045b50c5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinanceWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinanceWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
