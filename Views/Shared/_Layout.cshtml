@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FinanceWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/FinanceWeb.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <nav class="sidebar">
+
+
+
+
+        <div class="sidebar-top">
+            <div class="sidebar-brand">Finance Web</div>
+            <ul class="nav-links">
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="/Transactions">Spending</a></li>
+                <li><a href="/Budgets">Goals</a></li>
+            </ul>
+        </div>
+
+
+
+        <div class="sidebar-bottom">
+            <hr />
+            <ul class="nav-links">
+                <li><a href="/Settings">Settings</a></li>
+                <li><a href="/Logout">Logout</a></li>
+            </ul>
+    </nav>
+
+
+  
+
+    <div class="main-content">
+        <div class="container text-center">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+        
+
+   
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - FinanceWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

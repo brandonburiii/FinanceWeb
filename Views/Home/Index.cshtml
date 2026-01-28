@@ -1,0 +1,105 @@
+﻿
+<html>
+<head>
+    <script>
+        // Helper function for formatting numbers (K, M, B)
+        function addSymbols(e) {
+            var suffixes = ["", "K", "M", "B", "T"];
+            var order = Math.max(Math.floor(Math.log(Math.abs(e.value)) / Math.log(1000)), 0);
+            if (order > suffixes.length - 1) order = suffixes.length - 1;
+            var suffix = suffixes[order];
+            return CanvasJS.formatNumber(e.value / Math.pow(1000, order), "#,##0.##") + suffix;
+        }
+
+        window.onload = function () {
+            // 1. First Chart: Monthly Spending (Column)
+            var chart1 = new CanvasJS.Chart("chartContainer1", {
+                animationEnabled: true,
+                theme: "light2",
+                title: { text: "Monthly Spending Overview" },
+                axisY: { title: "Amount (RM)", prefix: "RM " },
+                data: [{
+                    type: "column",
+                    yValueFormatString: "RM #,##0.00",
+                    dataPoints: [
+                        { label: "Food", y: 750 },
+                        { label: "Transport", y: 200 },
+                        { label: "Housing", y: 1200 },
+                        { label: "Savings", y: 500 },
+                        { label: "Hobbies", y: 150 }
+                    ]
+                }]
+            });
+            chart1.render();
+
+            // 2. Second Chart: Stock Price (Area)
+            var chart2 = new CanvasJS.Chart("chartContainer2", {
+                animationEnabled: true,
+                theme: "light1",
+                title: { text: "Stock Price Analysis" },
+                axisX: { valueFormatString: "DD MMM" },
+                axisY: { title: "Closing Price (USD)", prefix: "$" },
+                data: [{
+                    type: "area",
+                    xValueFormatString: "DD MMM",
+                    yValueFormatString: "$##0.00",
+                    dataPoints: [
+                        { x: new Date(2016, 07, 01), y: 76.72 },
+                        { x: new Date(2016, 07, 02), y: 75.45 },
+                        { x: new Date(2016, 07, 03), y: 76.01 },
+                        { x: new Date(2016, 07, 04), y: 75.75 },
+                        { x: new Date(2016, 07, 05), y: 77.50 }
+                    ]
+                }]
+            });
+            chart2.render();
+
+            // 3. Third Chart: Internet Growth (Line) - Use ID 'chartContainer3'
+            var chart3 = new CanvasJS.Chart("chartContainer3", {
+                animationEnabled: true,
+                zoomEnabled: true,
+                theme: "dark2",
+                title: { text: "Growth in Internet Users Globally" },
+                axisX: { title: "Year", valueFormatString: "####", interval: 2 },
+                axisY: {
+                    title: "Internet Users (Log)",
+                    logarithmic: true,
+                    labelFormatter: addSymbols
+                },
+                axisY2: {
+                    title: "Internet Users",
+                    labelFormatter: addSymbols
+                },
+                legend: { verticalAlign: "top", fontSize: 16, dockInsidePlotArea: true },
+                data: [
+                    {
+                        type: "line",
+                        showInLegend: true,
+                        name: "Log Scale",
+                        dataPoints: [
+                            { x: 1994, y: 25437639 }, { x: 2000, y: 414794957 }, { x: 2020, y: 4699886462 }
+                        ]
+                    },
+                    {
+                        type: "line",
+                        axisYType: "secondary",
+                        showInLegend: true,
+                        name: "Linear Scale",
+                        dataPoints: [
+                            { x: 1994, y: 25437639 }, { x: 2000, y: 414794957 }, { x: 2020, y: 4699886462 }
+                        ]
+                    }
+                ]
+            });
+            chart3.render();
+        }
+    </script>
+</head>
+<body>
+    <div id="chartContainer1" style="height: 300px; width: 100%; margin-bottom: 20px;"></div>
+    <div id="chartContainer2" style="height: 300px; width: 100%; margin-bottom: 20px;"></div>
+    <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+</body>
+</html>

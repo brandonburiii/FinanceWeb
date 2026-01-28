@@ -1,0 +1,55 @@
+﻿.sidebar {
+    width: 250px;
+    height: 100vh; /* Full screen height */
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #13685e;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    padding: 20px 0;
+}
+
+.sidebar-top {
+    /* This stays at the top by default */
+}
+
+.sidebar-bottom {
+    /* This is the magic line! */
+    margin-top: auto;
+    padding-bottom: 20px;
+}
+
+/* Styling the Title/Logo area */
+.sidebar-brand {
+    padding: 10px 20px;
+    font-size: 1.5rem;      /* Makes the text larger */
+    font-weight: bold;      /* Makes it stand out */
+    color: #ffffff;         /* Bright white text */
+    letter-spacing: 1px;    /* Gives it a modern look */
+    margin-bottom: 20px;    /* Adds space before the first link */
+}
+
+/* Horizontal line styling */
+.sidebar hr {
+    border-top: 1px solid #3d3f43; /* Subtle line to separate top and bottom */
+    margin: 10px 20px;
+}
+
+/* Styling for the links */
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+    .nav-links li a {
+        display: block;
+        padding: 12px 20px;
+        color: #ced4da;
+        text-decoration: none;
+    }
+
+        .nav-links li a:hover {
+            background-color: #2b2e31;
+            color: white;
+        }
