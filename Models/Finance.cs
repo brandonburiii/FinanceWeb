@@ -38,7 +38,10 @@ namespace FinanceWeb.Models
         public class Budget
 
         {
-            public int BudgetID { get; set; }
+        internal int UserId;
+        internal decimal RemainingBalance;
+
+        public int BudgetID { get; set; }
             public int CategoryId { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal MonthlyLimit { get; set; }
